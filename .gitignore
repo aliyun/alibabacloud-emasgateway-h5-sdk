@@ -1,0 +1,8 @@
+.idea
+.project
+.svn
+*/.svn
+*/.idea
+node_modules
+**/Thumbs.db
+build/
