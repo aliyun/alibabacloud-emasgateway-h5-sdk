@@ -1,7 +1,7 @@
 {
   "name": "@alicloud/emasgateway-js",
   "description": "EMAS Gateway H5 SDK",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "devDependencies": {
     "eslint": "^3.16.0",
     "grunt": "~0.4.5",
@@ -16,12 +16,12 @@
     "ee",
     "js"
   ],
-  "files": [
+  "files":[
     "dist"
   ],
   "scripts": {
-    "build": "grunt && mkdir -p dist && cp build/mtopee.js dist/mtopee.js",
+    "build": "grunt && mkdir -p dist && cp build/mtop.js dist/mtop.js",
     "lint": "./node_modules/.bin/eslint 'src/**' || true"
   },
-  "main": "dist/mtopee.js"
+  "main": "dist/mtop.js"
 }

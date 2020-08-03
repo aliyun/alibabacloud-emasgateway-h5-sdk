@@ -33,7 +33,7 @@ module.exports = function(grunt) {
           '<%= srcPath%>/middleware.js',
           // '<%= srcPath%>/crypto/*.js',
         ],
-        dest: '<%= distPath %>/mtopee.debug.js'
+        dest: '<%= distPath %>/mtop.debug.js'
       }
     },
 

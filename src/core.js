@@ -2,7 +2,7 @@
   if (typeof module != 'undefined' && module.exports) module.exports = definition();
   else if (typeof define == 'function' && define.amd) define(definition);
   else context[name] = definition();
-})('mtopee', this, function() {
+})('emasMtopee', this, function() {
   var mtopee;
   var win = window;
   var Promise = win.Promise;
@@ -353,7 +353,7 @@
       method: 'get',
       headers: {},
       bizParams: {},
-      body: {},
+      body: null,
       timeout: 20000  // 默认超时时间是20秒
     });
 
@@ -395,7 +395,7 @@
           var queryArr = [];
           var queryString;
           Object.keys(bizParams).forEach(function(key) {
-            queryArr.push(key + '=' + bizParams[key]);
+            queryArr.push(encodeURIComponent(key) + '=' + encodeURIComponent(bizParams[key]));
           });
           if (queryArr.length > 0) {
             queryString = queryArr.join('&');
@@ -429,7 +429,7 @@
     if (params.method === 'get' || (params.method === 'post' && params.body)) {
       var queryArr = [];
       Object.keys(bizParams).forEach(function(key) {
-        queryArr.push(key + '=' + bizParams[key]);
+        queryArr.push(encodeURIComponent(key) + '=' + encodeURIComponent(bizParams[key]));
       });
       if (queryArr.length > 0) {
         queryString = queryArr.join('&');
@@ -487,6 +487,11 @@
     var sign = Hex.stringify(hmacSHA256(baseStr, "emasgatewayh5"));
     gwHeaders['x-emas-gw-sign'] = sign;
 
+    Object.keys(gwHeaders).forEach(function(key){
+      if(key.indexOf('-emas-gw-') > 0) {
+        gwHeaders[key] = encodeURIComponent(gwHeaders[key])
+      }
+    })
     next();
   }
 
