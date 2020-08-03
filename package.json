@@ -1,7 +1,7 @@
 {
   "name": "@alicloud/emasgateway-js",
   "description": "EMAS Gateway H5 SDK",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "devDependencies": {
     "eslint": "^3.16.0",
     "grunt": "~0.4.5",
